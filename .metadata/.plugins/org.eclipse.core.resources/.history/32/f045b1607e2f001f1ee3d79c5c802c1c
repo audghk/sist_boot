@@ -1,0 +1,64 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" isELIgnored="true"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		
+		$("#createUserBtn").click(function(){//계정 생성
+			var userId=$("#newUserId").val();
+			var name=$("#name").val();
+			$.ajax({
+				url:"/api/users",
+				type: "POST",//@PostMapping
+				data: {userId : userId, name : name},
+				dataType:"JSON",
+				error:function(xhr){
+					alert(xhr.status);
+				},
+				success: function(jsonObj){
+					$("#output").html(jsonObj.msg);
+				}
+			});//ajax
+		});//click	
+		$("#getUserBtn").click(function(){//계정조회
+			var userId=$("#userId").val();
+			$.ajax({
+				url:`/api/users/${userId}`,
+				type: "GET",//@GetMapping({userId})
+				data: {userId : userId, name : name},
+				dataType:"JSON",
+				error:function(xhr){
+					alert(xhr.status);
+				},
+				success: function(jsonObj){
+					$("#output").html(jsonObj.msg);
+				}
+			});//ajax
+		});//click	
+		
+	});//ready
+</script>
+</head>
+<body>
+<h1>Spring Boot RESTful CRUD예</h1>
+<h2>계정생성</h2>
+아이디 : <input type="text" id="newUserId" placeholder="아이디"/><br/>
+이름 : <input type="text" id="name" placeholder="이름"/><br/>
+<input type="button" id="createUserBtn" value="생성"/><br/>
+<h2>계정조회</h2>
+아이디 : <input type="text" id="userId" placeholder="아이디"/><br/>
+<input type="button" id="getUserBtn" value="조회"/><br/>
+<h2>전체조회</h2>
+<input type="button" id="getAllUserBtn" value="전체조회"/><br/>
+
+<div>
+<h2>결과창</h2>
+<div id="output"></div>
+</div>
+</body>
+</html>

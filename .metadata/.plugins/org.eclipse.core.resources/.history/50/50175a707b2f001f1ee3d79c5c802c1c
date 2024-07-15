@@ -1,0 +1,10 @@
+package kr.co.sist.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController//모든 응답은 JSP가 아닌 내용 자체가 응답된다. @ResponseBody 를 사용한 것과 동일
+public class UserMemberController {
+
+	
+	
+}

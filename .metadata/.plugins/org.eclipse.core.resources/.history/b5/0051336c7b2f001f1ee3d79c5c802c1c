@@ -1,0 +1,14 @@
+package kr.co.sist.service;
+
+import java.util.Map;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserMemberService {
+	
+	public int addMember(Map<String, String> userMap, String userId, String name) {
+		userMap.put(userId, name);
+		return 1;
+	}
+}

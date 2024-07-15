@@ -1,0 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Spring Boot RESTful CRUD예</h1>
+<h2>계정생성</h2>
+아이디 : <input type="text" id="newUserId" placeholder="아이디"/><br/>
+이름 : <input type="text" id="name" placeholder="이름"/><br/>
+<input type="button" id="createUserBtn" placeholder="생성"/><br/>
+</body>
+</html>
